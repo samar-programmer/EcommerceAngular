@@ -1,0 +1,25 @@
+<p>login works!</p>
+
+<div class="container">
+    <h2>ShopFLY</h2><br/><br/>
+
+    <form #loginForm="ngForm"  (ngSubmit)="loginUser()">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" [(ngModel)]="user.email">
+      </div>
+      <br/><br/>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" [(ngModel)]="user.password">
+      </div><br/><br/>
+      <div class="checkbox">
+        <label><input type="checkbox" name="remember"> Remember me</label>
+      </div><br/><br/>
+      
+    <button mat-raised-button color="primary">Login</button>
+      
+    </form>
+  </div>
+
+ 
