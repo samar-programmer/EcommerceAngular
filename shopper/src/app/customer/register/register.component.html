@@ -1,2 +1,54 @@
 
+<div fxLayoutAlign="center center"  fxFlexFill>
+<div  fxLayoutGap="30px">
 
+    <div fxFlex="100%">
+        <mat-card fxLayoutAlign="center" fxLayout="column">
+
+            <mat-toolbar color="primary">SHOPFLY</mat-toolbar>
+            <br/><br/>
+
+            <form fxLayout="column" (ngSubmit)="registerUser()">
+
+            <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="Enter Your First Name" name="firstname" [(ngModel)]="user.firstname" >
+                <mat-icon matSuffix>account_circle</mat-icon>
+              </mat-form-field>
+
+
+              
+            <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Enter Your Last Name" name="lastname" [(ngModel)]="user.lastname">
+                <mat-icon matSuffix>account_circle</mat-icon>
+              </mat-form-field>
+
+
+              <mat-form-field appearance="outline">
+                <mat-label>Gender</mat-label>
+                <input matInput placeholder="Enter Your Gender" name="gender" [(ngModel)]="user.gender">
+                <mat-icon matSuffix>person_outline</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="Enter Your Mobile Address" name="address" [(ngModel)]="user.address" >
+                <mat-icon matSuffix>home</mat-icon>
+              </mat-form-field>
+
+
+              <mat-form-field appearance="outline">
+                <mat-label>Mobile Number</mat-label>
+                <input matInput placeholder="Enter Your Mobile Number" name="mobilenumber" [(ngModel)]="user.mobilenumber">
+                <mat-icon matSuffix>local_phone</mat-icon>
+              </mat-form-field>
+
+                
+
+              <button mat-raised-button color="primary">Register</button>
+            </form>
+        </mat-card>
+    </div>
+  </div>
+</div>

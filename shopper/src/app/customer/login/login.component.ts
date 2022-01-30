@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+
 import { LoginService } from '../login.service';
 import { EcommerceUser } from '../ecommerce-user';
+import { FormControl, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -20,11 +22,18 @@ export class LoginComponent implements OnInit {
   loginUser()
   {
     
-    console.log(this.user);
+    
 
-    var result=this._service.loginUserFromRemote(this.user).then(data=>console.log(data));
+    var result=this._service.loginUserFromRemote(this.user);
 
-        //result.then(data=>console.log(data.toString()));
+      result.subscribe(data=>console.log(data));
+
+
 
   }
+
+
+  
+  
+
 }

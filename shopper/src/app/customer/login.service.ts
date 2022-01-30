@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { EcommerceUser } from './ecommerce-user';
-import { Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http'
 
 @Injectable({
@@ -13,9 +12,9 @@ export class LoginService {
   constructor(private _http : HttpClient) { }
 
 
-  async loginUserFromRemote(user:EcommerceUser)
+   loginUserFromRemote(user:EcommerceUser)
   {
-    console.log(user);
-    return await this._http.post<any>(this.baseUrl,user);
+  
+    return  this._http.post(this.baseUrl,user,{responseType:'text' as 'json'});
   }
 }

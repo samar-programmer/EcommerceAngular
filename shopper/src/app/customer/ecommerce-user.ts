@@ -1,14 +1,10 @@
 export class EcommerceUser {
 
-   
     email:String;
     password:String;
-  
-
-
-    constructor()
-    {
-        
-    }
-    
+    firstname:String;
+    lastname:String;
+    gender:String;
+    address:String;
+    mobilenumber:number;
 }
