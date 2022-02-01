@@ -43,27 +43,22 @@
           >
             <div class="product">
               <div class="product-wrap">
-                <a routerLink="/product-single"
+                <a routerLink="/product-single/{{ tempProduct.productId }}"
                   ><img
                     class="img-fluid w-100 mb-3 img-first"
-                    src=""
-                    alt="product-img"
-                /></a>
-                <a routerLink="/product-single"
-                  ><img
-                    class="img-fluid w-100 mb-3 img-second"
-                    src="assets/images/222.jpg"
+                    [src]="tempProduct.imgsrc"
                     alt="product-img"
                 /></a>
               </div>
-
               <div class="product-info">
                 <h2 class="product-title h5 mb-0">
                   <a routerLink="/product-single">{{
                     tempProduct.productName
                   }}</a>
                 </h2>
-                <span class="price"> $99.00 </span>
+                <span class="price">
+                  {{ tempProduct.productDiscountPrice | currency: "INR" }}
+                </span>
               </div>
             </div>
           </div>

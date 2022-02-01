@@ -9,30 +9,27 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class ProductService {
 
-  private baseUrl='localhost:10002/shopper/api/product/get-products';
+  baseUrl : string = 'http://localhost:10002/shopper/api/product/';
   
   constructor(private httpClient:HttpClient ) { }
   
   getProductList(){
-    console.log("inside service");
-    return this.httpClient.get(this.baseUrl).pipe(
-      retry(1),
-      catchError(this.handleError)
-    );
+    let result:any = this.httpClient.get( this.baseUrl+"get-products");
+    return result;
   }
 
-  handleError(error: any) {
-    console.log(error);
-    let errorMessage = '';
-    if(error.error instanceof ErrorEvent) {
-      // Get client-side error
+//   handleError(error: any) {
+//     console.log(error);
+//     let errorMessage = '';
+//     if(error.error instanceof ErrorEvent) {
+//       // Get client-side error
       
-      errorMessage = error.error.message;
-    } else {
-      // Get server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    //console.log(errorMessage);
-    return throwError(errorMessage);
- }
+//       errorMessage = error.error.message;
+//     } else {
+//       // Get server-side error
+//       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+//     }
+//     //console.log(errorMessage);
+//     return throwError(errorMessage);
+//  }
 }

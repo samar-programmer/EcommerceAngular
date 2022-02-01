@@ -15,15 +15,11 @@ export class ShopComponent implements OnInit {
   ngOnInit(): void {
     this.listProducts();
   }
+
+
   listProducts(){
-    console.log("service calling")
-    this.productService.getProductList().subscribe(
-      data=>{
-       // console.log(data);
-        this.products=data;
-        
-    }
-      )
+    this.productService.getProductList()
+    .subscribe((response: any)=>this.products=response )
   }
 
 }
