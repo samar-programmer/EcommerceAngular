@@ -10,6 +10,7 @@ import { ProductService } from '../services/product.service';
 export class ProductsingleComponent implements OnInit {
 
   products:any;
+  singleProduct:any;
   currentProductId:any;
   constructor(private productService:ProductService,private route:ActivatedRoute) { }
 
@@ -29,8 +30,8 @@ export class ProductsingleComponent implements OnInit {
         this.currentProductId=id;
     }
 
-    this.productService.getProductList(this.currentProductId)
-    .subscribe((response: any)=>this.products=response )
+    this.productService.getSingleProduct(this.currentProductId)
+    .subscribe((response: any)=>this.singleProduct=response )
   }
 
 }

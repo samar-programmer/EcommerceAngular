@@ -10,11 +10,7 @@
           >
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img
-                  src="assets/images/product-3.jpg"
-                  alt=""
-                  class="img-fluid"
-                />
+                <img [src]="singleProduct.imgsrc" alt="" class="img-fluid" />
               </div>
               <!-- <div class="carousel-item">
                 <img
@@ -47,14 +43,17 @@
 
       <div class="col-md-7">
         <div class="single-product-details mt-5 mt-lg-0">
-          <h2>Eclipse Crossbody</h2>
-          <div class="sku_wrapper mb-4">
+          <h2>{{ singleProduct.productName }}</h2>
+          <!-- <div class="sku_wrapper mb-4">
             SKU: <span class="text-muted">AB1563456789 </span>
-          </div>
+          </div> -->
 
           <hr />
 
-          <h3 class="product-price">$300 <del>$119.90</del></h3>
+          <h3 class="product-price">
+            {{ singleProduct.productDiscountPrice | currency: "INR" }}
+            <del>{{ singleProduct.productPrice | currency: "INR" }}</del>
+          </h3>
 
           <p class="product-description my-4">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum
