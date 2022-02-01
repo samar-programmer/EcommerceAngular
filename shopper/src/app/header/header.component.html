@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white w-100 navigation" id="navbar">
   <div class="container">
-    <a class="navbar-brand font-weight-bold" routerLink="/">E-Shop</a>
+    <a class="navbar-brand font-weight-bold" routerLink="#">Shopper</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
       aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,15 +9,22 @@
 
     <div class="collapse navbar-collapse " id="main-navbar">
       <ul class="navbar-nav mx-auto">
+
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/">Home </a>
+          <a class="nav-link" routerLink="/home">Home </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/shop">Shop </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">About Us</a>
+          <a class="nav-link"a routerLink="/checkout">Checkout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"a routerLink="//cart">Cart</a>
         </li>
         <!-- Pages -->
-        <li class="nav-item dropdown dropdown-slide">
+        <!-- <li class="nav-item dropdown dropdown-slide">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-delay="350"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Pages.
@@ -29,11 +36,12 @@
             <li><a href="#">Contact</a></li>
             <li><a href="#">404 Page</a></li>
             <li><a href="#">FAQ</a></li>
-          </ul>
-        </li><!-- /Pages -->
+          </ul> 
+        </li> -->
+        <!-- /Pages -->
         <!-- / Blog -->
 
-        <li class="nav-item dropdown dropdown-slide">
+        <!-- <li class="nav-item dropdown dropdown-slide">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-delay="350"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Shop.
@@ -45,10 +53,11 @@
             <li><a routerLink="/cart">Cart</a></li>
             <li><a href="#">Confirmation</a></li>
           </ul>
-        </li><!-- / Blog -->
+        </li> -->
+        <!-- / Blog -->
 
         <!-- Account -->
-        <li class="nav-item dropdown dropdown-slide">
+        <!-- <li class="nav-item dropdown dropdown-slide">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown5" role="button" data-delay="350"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Account.
@@ -63,11 +72,12 @@
             <li><a routerLink="/signup">SignUp Page</a></li>
             <li><a routerLink="/forgot-password">Forgot Password</a></li>
           </ul>
-        </li><!-- / Account -->
+        </li> -->
+        <!-- / Account -->
 
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#">Contact Us</a>
-        </li>
+        </li> -->
       </ul>
     </div>
     <!-- Navbar-collapse -->
@@ -123,7 +133,18 @@
           </div>
         </div>
       </li>
-      <li class="list-inline-item"><a href="#"><i class="tf-ion-ios-person mr-3"></i></a></li>
+      <li class="list-inline-item nav-item dropdown dropdown-slide"><a href="#"><i class="tf-ion-ios-person mr-3"></i></a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown5">
+          <li><a routerLink="/dashboard">Dahsboard</a></li>
+          <li><a routerLink="/order">Orders</a></li>
+          <li><a href="#">Downloads</a></li>
+          <li><a routerLink="/address">Address</a></li>
+          <li><a routerLink="/profile-details">Profile Details</a></li>
+          <li><a routerLink="/login">Login Page</a></li>
+          <li><a routerLink="/signup">SignUp Page</a></li>
+          <li><a routerLink="/forgot-password">Forgot Password</a></li>
+        </ul>
+      </li>
     </ul>
   </div>
 </nav>
