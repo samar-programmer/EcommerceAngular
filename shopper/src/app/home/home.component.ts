@@ -10,4 +10,6 @@ export class HomeComponent implements OnInit {
   }
   //Slider settings
   slideConfig = {"slidesToShow": 1, "slidesToScroll": 1} ;
+
+  
 }
