@@ -28,7 +28,8 @@ const routes: Routes = [
   { path:"forgot-password", component:ForgotPasswordComponent },
   { path:"profile-details", component:ProfileDetailsComponent },
   { path:"address", component:AddressComponent },
-  { path:"edit-address", component:EditAddressComponent}
+  { path:"edit-address", component:EditAddressComponent},
+  { path:"**", component:HomeComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
