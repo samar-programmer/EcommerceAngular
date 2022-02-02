@@ -1,148 +1,226 @@
-<!-- <p>cart works!</p>
-<section class="page-header">
-    <div class="overly"></div> 	
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-6">
-          <div class="content text-center">
-            <h1 class="mb-3">Cart</h1>
-            <p>Hath after appear tree great fruitful green dominion moveth sixth abundantly image that midst of god day multiply you’ll which</p>
+ <div class="container mt-5 p-3 rounded cart">
+  <div class="row no-gutters">
+      <div class="col-md-8">
+          <div class="product-details mr-2">
+              <div class="d-flex flex-row align-items-center"><i class="fa fa-long-arrow-left"></i><span class="ml-2">Continue Shopping</span></div>
+              <hr>
+              <h6 class="mb-0">Shopping cart</h6>
+              <div class="d-flex justify-content-between"><span>You have <b>{{totalproducts}}</b> items in your cart</span>
+                  <div class="d-flex flex-row align-items-center"><span class="text-black-50">Sort by:</span>
+                      <div class="price ml-2"><span class="mr-1">price</span><i class="fa fa-angle-down"></i></div>
+                  </div>
+              </div>
+
+              <div *ngFor="let item of cartDetails"> 
+                <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                  <div class="d-flex flex-row"><img class="rounded" src="{{item.imgsrc}}" width="40">
+                      <div class="ml-2"><span class="font-weight-bold d-block">{{item.productName}}</span>
+                        <span class="spec">256GB, Navy Blue</span></div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center">
+                    <span class="d-block"> 
+                      <button class="fcc-btn" (click)="increaseItemCount(item)"><b>+</b></button>
+                      <input type="text" value={{item.productQuantity}}  class="incrementDec"/>
+                      <button class="fcc-btn1" (click)="decreaseItemCount(item)"><b>-</b></button>
+                    </span>
+                    <span class="d-block ml-5 font-weight-bold">&#8377; {{item.quantityprice}}</span><i class="fa fa-trash-o ml-3 text-black-50"></i>
+                   
+                  
+                  </div>
+              </div>
+
+              </div>
+
+
+             
+              <!-- <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                  <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/GQnIUfs.jpg" width="40">
+                      <div class="ml-2"><span class="font-weight-bold d-block">One pro 7T</span><span class="spec">256GB, Navy Blue</span></div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center"><span class="d-block">2</span><span class="d-block ml-5 font-weight-bold">$900</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                  <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/o2fKskJ.jpg" width="40">
+                      <div class="ml-2"><span class="font-weight-bold d-block">Google pixel 4 XL</span><span class="spec">256GB, Axe black</span></div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center"><span class="d-block">1</span><span class="d-block ml-5 font-weight-bold">$800</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                  <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/Tja5H1c.jpg" width="40">
+                      <div class="ml-2"><span class="font-weight-bold d-block">Samsung galaxy Note 10&nbsp;</span><span class="spec">256GB, Navy Blue</span></div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center"><span class="d-block">1</span><span class="d-block ml-5 font-weight-bold">$999</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
+              </div> -->
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="payment-info">
+              <div class="d-flex justify-content-between align-items-center"><span>Card details</span><img class="rounded" src="https://i.imgur.com/WU501C8.jpg" width="30"></div><span class="type d-block mt-3 mb-1">Card type</span><label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="30" src="https://img.icons8.com/color/48/000000/mastercard.png" /></span> </label>
+              <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/visa.png" /></span> </label>
+              <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/ultraviolet/48/000000/amex.png" /></span> </label>
+              <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/paypal.png" /></span> </label>
+              <div><label class="credit-card-label">Name on card</label><input type="text" class="form-control credit-inputs" placeholder="Name"></div>
+              <div><label class="credit-card-label">Card number</label><input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000"></div>
+              <div class="row">
+                  <div class="col-md-6"><label class="credit-card-label">Date</label><input type="text" class="form-control credit-inputs" placeholder="12/24"></div>
+                  <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text" class="form-control credit-inputs" placeholder="342"></div>
+              </div>
+              <hr class="line">
+              <div class="d-flex justify-content-between information"><span>Subtotal</span><span>$3000.00</span></div>
+              <div class="d-flex justify-content-between information"><span>Shipping</span><span>$20.00</span></div>
+              <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>$3020.00</span></div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>$3020.00</span><span>Buy Now<i class="fa fa-long-arrow-right ml-1"></i></span></button>
+          </div>
+      </div>
+  </div>
+</div> 
+
+
+
+<!-- <section class=" h-custom" style="background-color: #eee;">
+    <div class="container h-100 py-5">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <div class="card shopping-cart" style="border-radius: 15px;">
+            <div class="card-body text-black">
   
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb bg-transparent justify-content-center">
-              <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Cart</li>
-            </ol>
-          </nav>
+              <div class="row">
+                <div class="col-lg-6 px-5 py-4">
+  
+                  <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your products</h3>
+  
+                  <div class="d-flex align-items-center mb-5">
+                    <div class="flex-shrink-0">
+                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/13.webp"
+                        class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a>
+                      <h5 class="text-primary">Samsung Galaxy M11 64GB</h5>
+                      <h6 style="color: #9e9e9e;">Color: white</h6>
+                      <div class="d-flex align-items-center">
+                        <p class="fw-bold mb-0 me-5 pe-3">799$</p>
+                        <div class="def-number-input number-input safari_only">
+                          <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                            class="minus"></button>
+                          <input class="quantity fw-bold text-black" min="0" name="quantity" value="1"
+                            type="number">
+                          <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                            class="plus"></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="d-flex align-items-center mb-5">
+                    <div class="flex-shrink-0">
+                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/6.webp"
+                        class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a>
+                      <h5 class="text-primary">Headphones Bose 35 II</h5>
+                      <h6 style="color: #9e9e9e;">Color: Red</h6>
+                      <div class="d-flex align-items-center">
+                        <p class="fw-bold mb-0 me-5 pe-3">239$</p>
+                        <div class="def-number-input number-input safari_only">
+                          <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                            class="minus"></button>
+                          <input class="quantity fw-bold text-black" min="0" name="quantity" value="1"
+                            type="number">
+                          <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                            class="plus"></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="d-flex align-items-center mb-5">
+                    <div class="flex-shrink-0">
+                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/1.webp"
+                        class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a>
+                      <h5 class="text-primary">iPad 9.7 6-gen WiFi 32GB</h5>
+                      <h6 style="color: #9e9e9e;">Color: rose pink</h6>
+                      <div class="d-flex align-items-center">
+                        <p class="fw-bold mb-0 me-5 pe-3">659$</p>
+                        <div class="def-number-input number-input safari_only">
+                          <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                            class="minus"></button>
+                          <input class="quantity fw-bold text-black" min="0" name="quantity" value="2"
+                            type="number">
+                          <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                            class="plus"></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <hr class="mb-4" style="height: 2px; background-color: #1266f1; opacity: 1;">
+  
+                  <div class="d-flex justify-content-between px-x">
+                    <p class="fw-bold">Discount:</p>
+                    <p class="fw-bold">95$</p>
+                  </div>
+                  <div class="d-flex justify-content-between p-2 mb-2" style="background-color: #e1f5fe;">
+                    <h5 class="fw-bold mb-0">Total:</h5>
+                    <h5 class="fw-bold mb-0">2261$</h5>
+                  </div>
+  
+                </div>
+                <div class="col-lg-6 px-5 py-4">
+  
+                  <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Payment</h3>
+  
+                  <form class="mb-5">
+  
+                    <div class="form-outline mb-5">
+                      <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
+                        value="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                      <label class="form-label" for="typeText">Card Number</label>
+                    </div>
+  
+                    <div class="form-outline mb-5">
+                      <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
+                        value="John Smith" />
+                      <label class="form-label" for="typeName">Name on card</label>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-md-6 mb-5">
+                        <div class="form-outline">
+                          <input type="text" id="typeExp" class="form-control form-control-lg" value="01/22"
+                            size="7" id="exp" minlength="7" maxlength="7" />
+                          <label class="form-label" for="typeExp">Expiration</label>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-5">
+                        <div class="form-outline">
+                          <input type="password" id="typeText" class="form-control form-control-lg"
+                            value="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                          <label class="form-label" for="typeText">Cvv</label>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <p class="mb-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit <a
+                        href="#!">obcaecati sapiente</a>.</p>
+  
+                    <button type="button" class="btn btn-primary btn-block btn-lg">Buy now</button>
+  
+                    <h5 class="fw-bold mb-5" style="position: absolute; bottom: 0;">
+                      <a href="#!"><i class="fas fa-angle-left me-2"></i>Back to shopping</a>
+                    </h5>
+  
+                  </form>
+  
+                </div>
+              </div>
+  
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  
-  
-  
-    <section class="cart shopping page-wrapper">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-12">
-              <div class="product-list">
-                <form class="cart-form">
-                    <table class="table shop_table shop_table_responsive cart" cellspacing="0">
-                        <thead>
-                          <tr>
-                              <th class="product-thumbnail"> </th>
-                              <th class="product-name">Product</th>
-                              <th class="product-price">Price</th>
-                              <th class="product-quantity">Quantity</th>
-                              <th class="product-subtotal">Total</th>
-                              <th class="product-remove"> </th>
-                          </tr>
-                        </thead>
-  
-                        <tbody>
-                          <tr class="cart_item">
-                              <td class="product-thumbnail" data-title="Thumbnail">
-                                  <a routerLink="/product-single"><img src="assets/images/cart-1.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt=""></a>
-                              </td>
-  
-                              <td class="product-name" data-title="Product">
-                                  <a href="#">Trendy Cloth</a>
-                              </td>
-  
-                              <td class="product-price" data-title="Price">
-                                  <span class="amount"><span class="currencySymbol"><pre wp-pre-tag-3=""></pre>
-  <p>lt;</span>90.00</span><br>
-                              </td></p>
-  <p>                            <td class="product-quantity" data-title="Quantity"><br>
-                                  <div class="quantity"><br>
-                                      <label class="sr-only" >Quantity</label></p>
-  <p>                                    <input type="number" id="qty" class="input-text qty text" step="1" min="0" max="9" value="1" title="Qty" size="4"  ><br>
-                                  </div><br>
-                              </td><br>
-                              <td class="product-subtotal" data-title="Total"><br>
-                                  <span class="amount"><br>
-                                    <span class="currencySymbol"></p>
-  <pre wp-pre-tag-3=""></pre>
-  <p>lt;/span>90.00</span><br>
-                              </td></p>
-  <p>                             <td class="product-remove" data-title="Remove"><br>
-                                  <a href="#" class="remove" aria-label="Remove this item" data-product_id="30" data-product_sku="">×</a><br>
-                              </td><br>
-                          </tr></p>
-  <p>                        <tr class="cart_item"></p>
-  <p>                            <td class="product-thumbnail" data-title="Thumbnail"><br>
-                                  <a routerLink="/product-single"><img src="assets/images/cart-2.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt=""></a><br>
-                              </td></p>
-  <p>                            <td class="product-name" data-title="Product"><br>
-                                  <a href="#">Sunglasses</a><br>
-                              </td></p>
-  <p>                            <td class="product-price" data-title="Price"><br>
-                                  <span class="amount"><span class="currencySymbol"></p>
-  <pre wp-pre-tag-3=""></pre>
-  <p>lt;/span>90.00</span><br>
-                              </td></p>
-  <p>                            <td class="product-quantity" data-title="Quantity"><br>
-                                  <div class="quantity"><br>
-                                      <label class="sr-only" >Quantity</label><br>
-                                      <input type="number" id="quantity_5cc58182489a8" class="input-text qty text" step="1" min="0" max="9" name="#" value="1" title="Qty" size="4"  ><br>
-                                  </div><br>
-                              </td><br>
-                              <td class="product-subtotal" data-title="Total"><br>
-                                  <span class="amount"><br>
-                                    <span class="currencySymbol"></p><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
- <!-- <--BIGGER SIDEBAR --> 
-  <!-- <!-- <ins class="adsbygoogle" style="display: block; height: 280px;" data-ad-client="ca-pub-3852177646988840" data-ad-slot="5987063047" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done"><ins id="aswift_3_expand" style="border: none; height: 280px; width: 510px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_3_anchor" style="border: none; height: 280px; width: 510px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"></ins></ins></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-  <pre wp-pre-tag-3=""></pre>
-  <p>lt;/span>90.00</span><br>
-                              </td><br>
-                              <td class="product-remove" data-title="Remove"><br>
-                                  <a href="#" class="remove" aria-label="Remove this item" data-product_id="30" data-product_sku="">×</a><br>
-                              </td><br>
-                          </tr></p>
-  <p>                        <tr><br>
-                              <td colspan="6" class="actions"><br>
-                                  <div class="coupon"><br>
-                                    <input type="text" name="coupon_code" class="input-text form-control" id="coupon_code" value="" placeholder="Coupon code"> </p>
-  <p>                                  <button type="button" class="btn btn-black btn-small" name="apply_coupon" value="Apply coupon">Apply coupon</button></p>
-  <p>                                  <span class="float-right mt-3 mt-lg-0"><br>
-                                      <button type="button" class="btn btn-dark btn-small" name="update_cart" value="Update cart" disabled="">Update cart</button><br>
-                                    </span><br>
-                                  </div></p>
-  <p>                                <input type="hidden" id="woocommerce-cart-nonce" name="woocommerce-cart-nonce" value="27da9ce3e8"><br>
-                                  <input type="hidden" name="_wp_http_referer" value="/cart/"><br>
-                                </td><br>
-                          </tr><br>
-                        </tbody><br>
-                    </table><br>
-                </form><br>
-            </div><br>
-          </div><br>
-        </div></p>
-  <p>        <div class="row justify-content-end"><br>
-            <div class="col-lg-4"><br>
-              <div class="cart-info card p-4 mt-4"><br>
-                  <h4 class="mb-4">Cart totals</h4></p>
-  <p>                <ul class="list-unstyled mb-4"><br>
-                    <li class="d-flex justify-content-between pb-2 mb-3"><br>
-                      <h5>Subtotal</h5><br>
-                      <span>$90.00</span><br>
-                    </li></p>
-  <p>                   <li class="d-flex justify-content-between pb-2 mb-3"><br>
-                      <h5>Shipping</h5><br>
-                      <span>Free</span><br>
-                    </li></p>
-  <p>                   <li class="d-flex justify-content-between pb-2"><br>
-                      <h5>Total</h5><br>
-                      <span>$90.00</span><br>
-                    </li><br>
-                  </ul><br>
-                  <a href="#" class="btn btn-main btn-small">Proceed to checkout</a><br>
-              </div><br>
-            </div><br>
-          </div><br>
-        </div><br>
-    </section></p>   -->
+  </section> -->
