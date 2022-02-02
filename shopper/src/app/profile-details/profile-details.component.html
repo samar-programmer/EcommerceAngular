@@ -53,31 +53,37 @@
             <div class="tab-pane fade show active" id="settings" role="tabpanel" >
               <div class="acccount-settings">
                 <h4 class="mb-4">Account information</h4>
-                <form action="#">
+                <form (ngSubmit)="registerUser()">
                   <div class="form-row">
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label >First Name</label>
-                        <input type="text" class="form-control" placeholder="John">
+                        <input  matInput class="form-control" name="firstname" placeholder="Enter your First Name" [(ngModel)]="user.firstname">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label >Last Name</label>
-                        <input type="text" class="form-control" placeholder="Jas">
+                        <input  matInput class="form-control" name="lastname" placeholder="Enter Your last Name" [(ngModel)]="user.lastname">
                       </div>
                     </div>
                   </div>
   
-                  <div class="form-group mb-4">
+                  <!-- <div class="form-group mb-4">
                     <label >Display name </label>
-                    <input type="text" class="form-control" placeholder="Jassa">
+                    <input matInput class="form-control" name="username" placeholder="UserName"  >
                     <p class="mt-2"> This will be how your name will be displayed in the account section and in reviews</p>
-                  </div>
+                  </div> -->
                   <div class="form-group mb-4">
                     <label >Email address </label>
-                    <input type="text" class="form-control" placeholder="therichposts@gmail.com">
+                    <input matInput class="form-control" name="email" placeholder="Enter Your Email"  [(ngModel)]="user.email">
                   </div>
+                  <div class="form-group mb-4">
+                    <label >Mobile Number </label>
+                    <input matInput class="form-control" name="mobilenumber" placeholder="Enter Your Mobile Number"  [(ngModel)]="user.mobilenumber">
+                  </div>
+
+                  <button mat-raised-button color="accent">UPDATE</button>
                 </form>
   
                 <form action="#" class="mt-5">
@@ -85,16 +91,16 @@
   
                   <div class="form-group">
                     <label >Current password </label>
-                    <input type="text" class="form-control" placeholder="">
+                    <input matInput class="form-control" name="password" placeholder=""   [(ngModel)]="user.password">
                     
                   </div>
                   <div class="form-group">
                     <label >New password</label>
-                    <input type="text" class="form-control" placeholder="">
+                    <input matInput class="form-control" name="password" placeholder=""    [(ngModel)]="user.password">
                   </div>
                   <div class="form-group">
                     <label >Confirm password</label>
-                    <input type="text" class="form-control" placeholder="">
+                    <input matInput class="form-control" name="password" placeholder=""     [(ngModel)]="user.password">
                   </div>
   
                   <a href="#" class="btn btn-dark">Save Changes</a>

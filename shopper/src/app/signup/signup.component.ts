@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EcommerceUser } from '../customer/ecommerce-user';
+import { SignUpService } from '../sign-up.service';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  user=new EcommerceUser();
+
+  constructor(private _service:SignUpService) { }
+
 
   ngOnInit(): void {
+  }
+
+  signUpUser()
+  {
+    console.log("Heloo there");
+    var result=this._service.signUpUserFromRemote(this.user);
+
+                result.subscribe(data=>console.log(data));
   }
 
 }

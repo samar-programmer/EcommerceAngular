@@ -1,5 +1,6 @@
 
 
+
   <div fxLayoutAlign="center center"  fxFlexFill>
     <div  fxLayoutGap="30px">
     
@@ -9,7 +10,7 @@
                 <mat-toolbar color="primary">SHOPFLY</mat-toolbar>
                 <br/><br/>
     
-                <form fxLayout="column" (ngSubmit)="loginUser()">
+                <form fxLayout="column" (ngSubmit)="signUpUser()" >
     
                 <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
@@ -25,15 +26,15 @@
                     <mat-icon matSuffix>visibility_off</mat-icon>
                   </mat-form-field>
   
-                  <button mat-raised-button color="warn" (click)="forgotpassword()">Forgot Password</button>
+                  
+                  <a routerLink="register"><button class="edit" mat-raised-button color="warn">EDIT</button></a>
                   <br/><br/>
-    
-                  <button mat-raised-button color="primary">LOGIN</button>
+                  <button mat-raised-button color="accent">SIGNUP</button>
                 </form>
             </mat-card>
         </div>
       </div>
     </div>
     
-
+  
  

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { EcommerceUser } from '../customer/ecommerce-user';
+
 import { LoginService } from '../login.service';
+import { EcommerceUser } from '../ecommerce-user';
+
+
 
 @Component({
   selector: 'app-login',
@@ -8,7 +11,8 @@ import { LoginService } from '../login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user=new EcommerceUser();
+
+     user=new EcommerceUser();
 
   constructor(private _service:LoginService ) { }
 
@@ -22,7 +26,7 @@ export class LoginComponent implements OnInit {
 
     var result=this._service.loginUserFromRemote(this.user);
 
-      result.subscribe((data:any)=>console.log(data));
+      result.subscribe(data=>console.log(data));
 
 
 
@@ -38,7 +42,5 @@ export class LoginComponent implements OnInit {
 
   
   
-
-
 
 }
