@@ -11,9 +11,9 @@ export class RegisterService {
 
   constructor(private _http:HttpClient) { }
 
-  registerUserFromRemote(user:EcommerceUser)
+  registerUserFromRemote(user:EcommerceUser,email:any)
   {
-     return this._http.post(this.baseUrl,user,{responseType :'text' as 'json'});
+     return this._http.put((this.baseUrl/email),user,{responseType :'text' as 'json'});
   }
 
 }

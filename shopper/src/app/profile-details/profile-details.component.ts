@@ -19,7 +19,7 @@ export class ProfileDetailsComponent implements OnInit {
 
   registerUser()
   {
-      var result=this._service.registerUserFromRemote(this.user);
+      var result=this._service.registerUserFromRemote(this.user,);
                  result.subscribe((data:any)=>console.log(data));
   }
 }
