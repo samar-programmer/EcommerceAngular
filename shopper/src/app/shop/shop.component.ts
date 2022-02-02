@@ -25,5 +25,9 @@ export class ShopComponent implements OnInit {
     .subscribe((response: any)=>this.products=response )
   }
 
+  getInputText(value:string){
+    this.productService.searchProduct(value)
+    .subscribe((response: any)=>this.products=response )
+  }
 
 }

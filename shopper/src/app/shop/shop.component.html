@@ -8,12 +8,14 @@
               <h2 class="d-block text-left-sm">Shop</h2>
 
               <div class="heading d-flex justify-content-between mb-5">
+                <div class="d-flex justify-content-start">
                 <input
                   class="form-control"
                   type="text"
                   placeholder="Search Product"
-                  style="width: 40%"
+                  style="width: 80%;height:80%" #titleInput
                 />
+                <button type="button" class="btn btn-light" style="height:80%" (click) = "getInputText(titleInput.value)">Search</button></div>
                 <form class="ordering" method="get">
                   <select
                     name="orderby"

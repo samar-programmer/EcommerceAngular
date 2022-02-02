@@ -18,8 +18,13 @@ export class ProductService {
     return result;
   }
   getSingleProduct(searchProductid:number){
-    console.log("dd");
     let result:any = this.httpClient.get( this.baseUrl+"api/search-product/get-Singleproduct/"+searchProductid);
+    return result;
+  }
+
+
+  searchProduct(value:string){
+    let result:any = this.httpClient.get( this.baseUrl+"api/search-product/search-productList/"+value);
     return result;
   }
 
