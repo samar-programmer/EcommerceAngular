@@ -1,5 +1,8 @@
 import { CartService } from './../services/cart.service';
 import { Component, OnInit } from '@angular/core';
+import { Payment } from '../common/payment';
+import { PaymentServiceService } from '../services/payment-service.service';
+import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +13,7 @@ export class CartComponent implements OnInit {
   cartDetails :any;
 
  totalproducts : any = 0;
-  constructor(private cartService :CartService) { }
+  constructor(private cartService :CartService,private paymetService:PaymentServiceService) { }
 
   ngOnInit(): void {
 
@@ -43,6 +46,16 @@ increaseItemCount(item:any) {
    }
  
   };
+
+  
+  paymentMessage:any;
+  PaymentInfo: Payment=new Payment();
+  startPayment(){
+    this.PaymentInfo.setAmount(50);
+    this.paymetService.makePaymentService(this.PaymentInfo).subscribe((response: any)=>this.paymentMessage=response );
+  }
+
+
   // $scope.sumCalc = function() {
   //   var sum = 0;
   //   angular.forEach($scope.itemList, function(item, index) {
