@@ -8,8 +8,8 @@ import { EcommerceUser } from './ecommerce-user';
 })
 export class LoginService {
 
-  private baseUrl="http://localhost:10001/shopper/api/customer/signIn";
-  private baseurl="http://localhost:10001/shopper/api/customer/send-otp";
+  private baseUrl="http://localhost:10002/shopper/api/customer/signIn";
+  private baseurl="http://localhost:10002/shopper/api/customer/send-otp";
 
   constructor(private _http : HttpClient) { }
 

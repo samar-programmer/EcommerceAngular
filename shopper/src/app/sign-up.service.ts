@@ -9,7 +9,7 @@ import { EcommerceUser } from './ecommerce-user';
 })
 export class SignUpService {
 
-  private baseUrl="http://localhost:10001/shopper/api/customer/signUp";
+  private baseUrl="http://localhost:10002/shopper/api/customer/signUp";
 
   constructor(private _http:HttpClient) { }
 
@@ -18,6 +18,5 @@ signUpUserFromRemote(user:EcommerceUser)
 {
     return this._http.post(this.baseUrl,user,{responseType:'text' as 'json'});
 }
-
 
 }
