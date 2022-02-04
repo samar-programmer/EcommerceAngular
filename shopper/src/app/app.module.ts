@@ -31,6 +31,7 @@ import { FormsModule } from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatInputModule} from '@angular/material/input';
+import { DefaultModule } from './layouts/default/default.module';
 
 
 
@@ -52,8 +53,8 @@ import {MatInputModule} from '@angular/material/input';
     ForgotPasswordComponent,
     ProfileDetailsComponent,
     AddressComponent,
-    EditAddressComponent
-
+    EditAddressComponent,
+    
     
   ],
   imports: [
@@ -70,6 +71,9 @@ import {MatInputModule} from '@angular/material/input';
     MatToolbarModule,
     FlexLayoutModule,
     MatInputModule,
+    DefaultModule,
+    MatButtonModule,
+
 
   ],
   providers: [ProductService],

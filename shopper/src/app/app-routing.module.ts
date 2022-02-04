@@ -1,3 +1,6 @@
+import { DashboardComponent1 } from './modules/dashboard/dashboard.component';
+import { AddproductComponent } from './shared/products/addproduct/addproduct.component';
+import { DefaultComponent } from './layouts/default/default.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -29,7 +32,18 @@ const routes: Routes = [
   { path:"profile-details", component:ProfileDetailsComponent },
   { path:"address", component:AddressComponent },
   { path:"edit-address", component:EditAddressComponent},
-  { path:"**", component:HomeComponent }
+  // { path:"**", component:HomeComponent },
+  {path:'admin',
+   component:DefaultComponent,
+   children:[{
+      path:'',
+      component:DashboardComponent1
+   },
+  {path:'addProduct',
+   component:AddproductComponent
+   }
+  ]
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
