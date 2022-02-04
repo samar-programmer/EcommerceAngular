@@ -1,28 +1,40 @@
-<div class="account section">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-6">
-          <div class="login-form border p-5">
-            <div class="text-center heading">
-              <h2 class="mb-2">Login</h2>
-              <p class="lead">Don’t have an account? <a href="#">Create a free account</a></p>
-            </div>
-  
-            <form action="#">
-              <div class="form-group mb-4">
-                <label for="#">Enter username</label>
-                <input type="text" class="form-control" placeholder="Enter Username">
-              </div>
-              <div class="form-group">
-                <label for="#">Enter Password</label>
-                <a class="float-right" href="">Forget password?</a>
-                <input type="text" class="form-control" placeholder="Enter Password"> 
-              </div>
-  
-              <a href="#" class="btn btn-main mt-3 btn-block">Login</a>
-            </form>
-          </div>
+
+
+  <div fxLayoutAlign="center center"  fxFlexFill>
+    <div  fxLayoutGap="30px">
+    
+        <div fxFlex="100%">
+            <mat-card fxLayoutAlign="center" fxLayout="column">
+    
+                <mat-toolbar color="primary">SHOPPER</mat-toolbar>
+                <br/><br/>
+    
+                <form fxLayout="column" (ngSubmit)="loginUser()">
+    
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Enter Your Email" name="email" required #email="ngModel" [(ngModel)]="user.email" >
+                    <mat-icon matSuffix>email</mat-icon>
+                  </mat-form-field>
+                  <span *ngIf="email.invalid && email.touched" style="color:red;">Please Enter a Valid Email</span>
+    
+                  
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Enter Your Password" name="password" required #password="ngModel" [(ngModel)]="user.password">
+                    <mat-icon matSuffix>visibility_off</mat-icon>
+                  </mat-form-field>
+                  <span *ngIf="password.invalid && password.touched" style="color:red;">Please Enter a Valid Password</span>
+
+                  <!-- <button mat-raised-button color="warn" (click)="forgotpassword()">Forgot Password</button>
+                  <br/><br/> -->
+    
+                  <button mat-raised-button color="accent">LOGIN</button>
+                </form>
+            </mat-card>
         </div>
       </div>
     </div>
-  </div>
+    
+
+ 

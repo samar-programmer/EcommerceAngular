@@ -21,10 +21,18 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { AddressComponent } from './address/address.component';
 import { EditAddressComponent } from './edit-address/edit-address.component';
-
-
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 import { ProductService } from './services/product.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatInputModule} from '@angular/material/input';
+
+
 
 @NgModule({
   declarations: [
@@ -45,12 +53,24 @@ import { ProductService } from './services/product.service';
     ProfileDetailsComponent,
     AddressComponent,
     EditAddressComponent
+
+    
   ],
   imports: [
     SlickCarouselModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatToolbarModule,
+    FlexLayoutModule,
+    MatInputModule,
+
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
