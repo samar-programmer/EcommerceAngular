@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EcommerceUser } from './ecommerce-user';
 
 
 
@@ -9,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularshop';
+  user=new EcommerceUser();
 }

@@ -4,6 +4,5 @@ export class EcommerceUser {
     password?:String;
     firstname?:String;
     lastname?:String;
-    address?:String;
     mobilenumber?:number;
 }
