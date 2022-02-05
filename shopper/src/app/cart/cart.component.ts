@@ -56,8 +56,12 @@ increaseItemCount(item:any) {
   }
   startPayment(){
     this.PaymentInfo.setAmount(50);
-    this.paymetService.makePaymentService(this.PaymentInfo).subscribe((response: any)=>this.paymentMessage=response );
-    this.checkResponse();
+    this.paymetService.makePaymentService(this.PaymentInfo).subscribe((response: any)=>
+    {
+      this.paymentMessage=response
+      this.checkResponse();
+    });
+  
   }
 
 

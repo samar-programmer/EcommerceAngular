@@ -15,4 +15,5 @@ export class PaymentServiceService {
     console.log(PaymentInfo.getAmount());
     return  this.httpClient.post(this.baseUrl+"api/payment/makePayment/",PaymentInfo,{responseType:'text' as 'json'});
   }
+  
 }
