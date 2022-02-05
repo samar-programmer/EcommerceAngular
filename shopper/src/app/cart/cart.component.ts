@@ -50,10 +50,16 @@ increaseItemCount(item:any) {
   
   paymentMessage:any;
   PaymentInfo: Payment=new Payment();
+  checkResponse(){
+    console.log("insede");
+    console.log(this.paymentMessage);
+  }
   startPayment(){
     this.PaymentInfo.setAmount(50);
     this.paymetService.makePaymentService(this.PaymentInfo).subscribe((response: any)=>this.paymentMessage=response );
+    this.checkResponse();
   }
+
 
 
   // $scope.sumCalc = function() {
