@@ -1,8 +1,11 @@
-<div *ngIf="this.user.email!='Admin@gmail.com';else elseBlock">
+<!-- <div *ngIf="this.user.email!='Admin@gmail.com';else elseBlock">
   <app-header></app-header>
   <router-outlet></router-outlet>
 <app-footer></app-footer>
 </div>
 
 
-<ng-template #elseBlock><router-outlet></router-outlet></ng-template>
+<ng-template #elseBlock><router-outlet></router-outlet></ng-template> -->
+<app-header></app-header>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
