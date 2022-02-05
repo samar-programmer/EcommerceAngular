@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CartService {
-  baseUrl : string = 'http://localhost:10007/shopper/api/cart/';
+  baseUrl : string = 'http://localhost:10002/shopper/api/cart/';
   constructor(private httpClient:HttpClient) { }
 
   getAllProducts(){
