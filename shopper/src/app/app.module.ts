@@ -32,6 +32,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatInputModule} from '@angular/material/input';
 import { DefaultModule } from './layouts/default/default.module';
+import { RecoverypasswordComponent } from './recoverypassword/recoverypassword.component';
 
 
 
@@ -54,6 +55,7 @@ import { DefaultModule } from './layouts/default/default.module';
     ProfileDetailsComponent,
     AddressComponent,
     EditAddressComponent,
+    RecoverypasswordComponent,
     
     
   ],

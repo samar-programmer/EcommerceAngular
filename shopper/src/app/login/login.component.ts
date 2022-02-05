@@ -23,19 +23,23 @@ export class LoginComponent implements OnInit {
 
     var result=this._service.loginUserFromRemote(this.user);
 
-      result.subscribe((data:any)=>console.log(data));
+      result.subscribe((data:any)=>{console.log(data)
+        localStorage.setItem("email",data);
 
+      });
+
+      
 
 
   }
 
-  forgotpassword()
-  {
-    var result=this._service.sendOtp(this.user);
+  // forgotpassword()
+  // {
+  //   var result=this._service.sendOtp(this.user);
 
-        result.subscribe((data:any)=>console.log(data));
+  //       result.subscribe((data:any)=>console.log(data));
 
-  }
+  // }
 
   
   
