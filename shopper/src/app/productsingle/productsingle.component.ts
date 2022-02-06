@@ -23,7 +23,7 @@ export class ProductsingleComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params:any) => {
       this.productId= +params['id'];
       this.listProducts(this.productId) 
     });
@@ -49,7 +49,7 @@ export class ProductsingleComponent implements OnInit {
     this.cartProduct.setproductId(this.productId);
     this.cartProduct.settotalPrize((+Quantity)*this.singleProduct.productDiscountPrice);
     this.cartProduct.setproductstatus("IN-CART");
-    this.cartService.addToCart(this.cartProduct).subscribe((data)=>console.log(data));
+    this.cartService.addToCart(this.cartProduct).subscribe((data:any)=>console.log(data));
   }
 
 }

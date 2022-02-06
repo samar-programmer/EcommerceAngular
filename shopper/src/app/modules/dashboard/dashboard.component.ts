@@ -1,7 +1,10 @@
+import { OrderService } from './../../services/order.service';
+import { ProductService } from './../../shared/products/product.service';
 import { Component, OnInit, ViewChild,AfterViewInit  } from '@angular/core';
 import { DashboardService } from '../dashboard.service';
 import { MatPaginator } from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatSort} from '@angular/material/sort';
 
 export interface PeriodicElement {
   name: string;
@@ -45,12 +48,13 @@ export class DashboardComponent1 implements OnInit  {
   
   
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['orderId', 'email', 'status', 'totalOrderPrice', 'orderdDate', 'deliverdDate'];
+  dataSource!: MatTableDataSource<any>;
 
-  @ViewChild(MatPaginator, { static: true }) paginator: any;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dashboardService: DashboardService) { 
+  constructor(private dashboardService: DashboardService, private orderService:OrderService) { 
     
   }
 
@@ -58,10 +62,60 @@ export class DashboardComponent1 implements OnInit  {
 
   ngOnInit() {
     this.bigChart = this.dashboardService.bigChart();
-    this.cards = this.dashboardService.cards();
-    this.pieChart = this.dashboardService.pieChart();
+  //  this.cards = this.dashboardService.cards();
+  //    this.pieChart = this.dashboardService.pieChart();
+    this.getAllProducts();
 
-     this.dataSource.paginator = this.paginator;
+      //this.dataSource.paginator = this.paginator;
+  }
+
+  editProduct(row:any){
+    // this.dialog.open(AddproductdialogComponent, {
+    //   width:'35%',
+    //   data:row
+    // }).afterClosed().subscribe((val:any)=>{
+    //   console.log("sasi");
+    //   this.getAllProducts();
+    // });;
+  }
+
+  getAllProducts(){
+    this.orderService.getAllProducts()
+    .subscribe({
+      next:(response:any)=>{
+       console.log(response);
+       this.dataSource = new MatTableDataSource(response);
+       this.dataSource.paginator = this.paginator;
+       this.dataSource.sort = this.sort;
+
+      },
+      error:()=>{
+        alert("error");
+      }
+    })
+  }
+
+  deleteProduct(id:number){
+    // this.productService.deleteProduct(id)
+    //   .subscribe({
+    //     next:(response:any)=>{
+    //       alert("product Deleted successfully");
+    //       this.getAllProducts();
+        
+    //     },
+    //     error:()=>{
+    //       alert("error");
+    //     }
+    //   })
+  }
+
+   applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
 }

@@ -1,3 +1,8 @@
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { DashboardService } from './../../modules/dashboard.service';
 
 
@@ -33,7 +38,12 @@ import {MatTableModule} from '@angular/material/table';
     FlexLayoutModule,
     MatCardModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule
   ],
   providers: [
     DashboardService
