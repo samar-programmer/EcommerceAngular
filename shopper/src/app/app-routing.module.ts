@@ -17,6 +17,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { AddressComponent } from './address/address.component';
 import { EditAddressComponent } from './edit-address/edit-address.component';
+import { RecoverypasswordComponent } from './recoverypassword/recoverypassword.component';
 
 const routes: Routes = [
   { path:"home", component:HomeComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path:"profile-details", component:ProfileDetailsComponent },
   { path:"address", component:AddressComponent },
   { path:"edit-address", component:EditAddressComponent},
+  { path:"recovery-password",component:RecoverypasswordComponent},
   // { path:"**", component:HomeComponent },
   {path:'admin',
    component:DefaultComponent,

@@ -9,7 +9,7 @@ import { EcommerceUser } from './ecommerce-user';
 export class LoginService {
 
   private baseUrl="http://localhost:10002/shopper/api/customer/signIn";
-  private baseurl="http://localhost:10002/shopper/api/customer/send-otp";
+  
 
   constructor(private _http : HttpClient) { }
 
@@ -21,9 +21,6 @@ export class LoginService {
 
   }
 
-  sendOtp(user:EcommerceUser)
-  {
-    return this._http.post(this.baseurl,user,{responseType:'text' as 'json'});
-  }
+  
 
 }

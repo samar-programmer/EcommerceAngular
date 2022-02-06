@@ -23,7 +23,7 @@ export class ForgotPasswordComponent implements OnInit {
 
       result.subscribe((data:any)=>console.log(data));
 
-      this.route.navigate(['./']);
+      this.route.navigate(['./recovery-password']);
   }
 
 }
