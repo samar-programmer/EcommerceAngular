@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import { fadeInItems } from '@angular/material/menu';
 import { isNgTemplate } from '@angular/compiler';
 import { OrderService } from '../services/order.service';
+import { Orderdata } from '../common/orderdata';
 
 declare var Razorpay: any;
 
@@ -65,9 +66,11 @@ export class CartComponent implements OnInit {
   paymentMessage:any;
   PaymentInfo: Payment=new Payment();
   error:any;
-
-  callbackRazor(){
-      console.log("hello");
+  orderdata:Orderdata=new Orderdata();
+  setOrders(){
+    this.orderdata.email=localStorage.getItem("email");
+    this.orderdata.totalPrize=this.totalPrize;
+    this.orderservice.setOrder(this.orderdata);
   }
   
   options = {
@@ -81,7 +84,7 @@ export class CartComponent implements OnInit {
         console.log(_response.razorpay_order_id);
         console.log(_response.razorpay_signature);
         Swal.fire("Good Job","Payment successful","success");
-        this.callbackRazor()
+        this.setOrders()
     },
     "prefill": {
     "name": "",
