@@ -48,7 +48,7 @@ export class DashboardComponent1 implements OnInit  {
   
   
 
-  displayedColumns: string[] = ['orderId', 'email', 'status', 'totalOrderPrice', 'orderdDate', 'deliverdDate'];
+  displayedColumns: string[] = ['orderId', 'email', 'status', 'totalOrderPrice', 'orderdDate'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

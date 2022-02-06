@@ -1,4 +1,4 @@
 export class Orderdata {
     email?:any;
-    totalPrize?:any;
+    totalPrice?:any; 
 }

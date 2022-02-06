@@ -11,7 +11,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class OrdersComponent implements OnInit {
 
-  displayedColumns: string[] = ['orderId', 'email', 'status', 'totalOrderPrice', 'orderdDate', 'deliverdDate'];
+  displayedColumns: string[] = ['orderId', 'email', 'status', 'totalOrderPrice', 'orderdDate'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -34,7 +34,7 @@ export class OrdersComponent implements OnInit {
   }
 
   getAllProducts(){
-    this.orderService.getAllProducts()
+    this.orderService.getProducts(localStorage.getItem("email"))
     .subscribe({
       next:(response:any)=>{
        console.log(response);

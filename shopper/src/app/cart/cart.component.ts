@@ -80,8 +80,9 @@ export class CartComponent implements OnInit {
   orderdata:Orderdata=new Orderdata();
   setOrders(){
     this.orderdata.email=localStorage.getItem("email");
-    this.orderdata.totalPrize=this.totalPrize;
+    this.orderdata.totalPrice=this.totalPrize;
     this.orderservice.setOrder(this.orderdata).subscribe((data)=>console.log(data));
+    //this.route.navigate(['./home']);
   }
   
   options = {
