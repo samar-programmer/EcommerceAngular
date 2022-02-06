@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
         if(data.toString()=="Admin@gmail.com")
         {
-          // <a [RouterLink]="['./home']"></a>
+          
           this.route.navigate(['./admin']);
         }
         else

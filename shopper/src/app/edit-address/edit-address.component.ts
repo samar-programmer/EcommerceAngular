@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EcommerceAddress } from '../ecommerce-address';
 import { EcommerceUser } from '../ecommerce-user';
 
@@ -20,7 +21,7 @@ export class EditAddressComponent implements OnInit {
   public address:EcommerceAddress=new EcommerceAddress();
  
   
-  constructor(private _service:SaveAddressService) { 
+  constructor(private _service:SaveAddressService,private route:Router) { 
     this.user1=new EcommerceUser();
     //this.address=new EcommerceAddress();
     this.user1.email=localStorage.getItem("email");
@@ -29,6 +30,16 @@ export class EditAddressComponent implements OnInit {
   
 
   ngOnInit(): void {
+
+      
+    var email=localStorage.getItem("email")
+ 
+    if(email==null){
+     console.log("No Email");
+  
+    this.route.navigate(['./home']);
+      }
+
   }
 
   saveAddress()

@@ -7,6 +7,7 @@ import { of, switchAll } from 'rxjs';
 import Swal from 'sweetalert2';
 import { fadeInItems } from '@angular/material/menu';
 import { isNgTemplate } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 declare var Razorpay: any;
 
@@ -19,11 +20,23 @@ export class CartComponent implements OnInit {
   cartDetails :any;
 
  totalproducts : any = 0;
-  constructor(private cartService :CartService,private paymetService:PaymentServiceService) { }
+  constructor(private cartService :CartService,private paymetService:PaymentServiceService,private route:Router) { }
   totalPrize:any=0;
 
 
   ngOnInit(): void {
+
+    
+    var email=localStorage.getItem("email")
+ 
+    if(email==null){
+     console.log("No Email");
+  
+    this.route.navigate(['./home']);
+      }
+
+
+
 
     let result : any = this.cartService.getAllProducts(localStorage.getItem("email"));
 
