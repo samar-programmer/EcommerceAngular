@@ -10,7 +10,7 @@ import { SaveAddressService } from '../save-address.service';
 })
 export class EditAddressComponent implements OnInit {
 
-  user1:EcommerceUser=new EcommerceUser("email","","","",0);
+  user1:EcommerceUser=new EcommerceUser();
   address=new EcommerceAddress();
   //user1.setEmail("email");
   //address.setUserdata(user1);
