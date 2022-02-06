@@ -7,4 +7,8 @@ export class Payment {
     public getAmount(){
         return this._amount;
     }
+
+    constructor(){
+        
+    }
 }
