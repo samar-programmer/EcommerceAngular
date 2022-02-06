@@ -38,10 +38,6 @@ export class CartComponent implements OnInit {
       }
 
 
-      
-
-
-
     let result : any = this.cartService.getAllProducts(localStorage.getItem("email"));
 
     result
