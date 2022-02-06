@@ -3,19 +3,18 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Payment } from '../common/payment';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaymentServiceService {
 
-   httpOptions = {
+ 
+  baseUrl : string = 'http://localhost:10002/shopper/';
+  httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
-  baseUrl : string = 'http://localhost:10002/shopper/';
   
   constructor(private httpClient:HttpClient ) { }
   

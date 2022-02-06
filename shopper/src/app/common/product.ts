@@ -6,4 +6,5 @@ export class Product {
     addeddate?:string;
     productPrice?:string;
     productDiscountPrice?:string;
+    productstatus?:string;
 }

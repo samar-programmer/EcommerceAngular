@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartProduct } from '../common/cart-product';
+import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -12,12 +14,18 @@ export class ProductsingleComponent implements OnInit {
   products:any;
   singleProduct:any;
   currentProductId:any;
-  constructor(private productService:ProductService,private route:ActivatedRoute) { }
+  productId:any;
+
+  cartProduct: CartProduct=new CartProduct();
+
+
+  constructor(private productService:ProductService,private route:ActivatedRoute,private cartService:CartService) { }
 
   ngOnInit(): void {
     
     this.route.params.subscribe(params => {
-      this.listProducts(+params['id']) 
+      this.productId= +params['id'];
+      this.listProducts(this.productId) 
     });
   }
 
@@ -32,6 +40,16 @@ export class ProductsingleComponent implements OnInit {
 
     this.productService.getSingleProduct(this.currentProductId)
     .subscribe((response: any)=>this.singleProduct=response )
+  }
+
+
+  addToCart(Quantity:string){
+    this.cartProduct.setproductQuantity(+Quantity);
+    this.cartProduct.setEmail(localStorage.getItem("email"));
+    this.cartProduct.setproductId(this.productId);
+    this.cartProduct.settotalPrize((+Quantity)*this.singleProduct.productDiscountPrice);
+    this.cartProduct.setproductstatus("IN-CART");
+    this.cartService.addToCart(this.cartProduct).subscribe((data)=>console.log(data));
   }
 
 }

@@ -3,8 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { Payment } from '../common/payment';
 import { PaymentServiceService } from '../services/payment-service.service';
 import { AnonymousSubject } from 'rxjs/internal/Subject';
-import { switchAll } from 'rxjs';
+import { of, switchAll } from 'rxjs';
 import Swal from 'sweetalert2';
+import { fadeInItems } from '@angular/material/menu';
+import { isNgTemplate } from '@angular/compiler';
 
 declare var Razorpay: any;
 
@@ -18,10 +20,12 @@ export class CartComponent implements OnInit {
 
  totalproducts : any = 0;
   constructor(private cartService :CartService,private paymetService:PaymentServiceService) { }
+  totalPrize:any=0;
+
 
   ngOnInit(): void {
 
-    let result : any = this.cartService.getAllProducts();
+    let result : any = this.cartService.getAllProducts(localStorage.getItem("email"));
 
     result
     .subscribe({
@@ -30,6 +34,10 @@ export class CartComponent implements OnInit {
        this.cartDetails = response;
        console.log(this.cartDetails);
        this.totalproducts = this.cartDetails.length;
+        for( let items of this.cartDetails){
+          this.totalPrize+=items.quantityprice;
+        }
+
       },
       error:()=>{
         alert("error");
@@ -109,7 +117,7 @@ increaseItemCount(item:any) {
    }
   }
   startPayment(){
-    this.PaymentInfo.setAmount(50);
+    this.PaymentInfo.setAmount(this.totalPrize+20);
     this.paymetService.makePaymentService(this.PaymentInfo).subscribe((response: any)=>
     {
       this.paymentMessage=response
