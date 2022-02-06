@@ -73,6 +73,8 @@ increaseItemCount(item:any) {
         console.log(_response.razorpay_payment_id);
         console.log(_response.razorpay_order_id);
         console.log(_response.razorpay_signature);
+      
+
         Swal.fire("Good Job","Payment successful","success");
         
     }

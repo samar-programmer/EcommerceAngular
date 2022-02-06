@@ -2,8 +2,6 @@ import { EcommerceUser } from "./ecommerce-user";
 
 export class EcommerceAddress {
 
-    
-    
 	 doorno?:number;
 	 name?:String;
 	 streetname?:String;
@@ -12,14 +10,6 @@ export class EcommerceAddress {
 	 pincode?:number;
 	 landmark?:String;
 	 phonenumber?:number;
-     userdata?:EcommerceUser
-
-	 public setUserdata(userdata:EcommerceUser){
-        this.userdata=userdata;
-    }
-    public getUserdata(){
-        return this.userdata;
-    }
-
+	 userdata?:EcommerceUser;
      
 }
