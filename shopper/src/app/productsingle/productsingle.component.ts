@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 import { CartProduct } from '../common/cart-product';
 import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
@@ -44,6 +45,7 @@ export class ProductsingleComponent implements OnInit {
 
 
   addToCart(Quantity:string){
+    Swal.fire("done","Product Added to cart","success");
     this.cartProduct.setproductQuantity(+Quantity);
     this.cartProduct.setEmail(localStorage.getItem("email"));
     this.cartProduct.setproductId(this.productId);
