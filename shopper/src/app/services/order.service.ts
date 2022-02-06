@@ -13,7 +13,11 @@ export class OrderService {
     return result;
   }
 
+
+
+      
   setOrder(orderDetails:any ){
-    return this.httpClient.post(this.baseUrl+"setOrder", orderDetails, {responseType:'text' as 'json'});
-  }
+      return this.httpClient.post( this.baseUrl+"setOrder",orderDetails);
+    }
+
 }
