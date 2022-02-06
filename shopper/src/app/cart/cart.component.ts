@@ -7,6 +7,7 @@ import { of, switchAll } from 'rxjs';
 import Swal from 'sweetalert2';
 import { fadeInItems } from '@angular/material/menu';
 import { isNgTemplate } from '@angular/compiler';
+import { OrderService } from '../services/order.service';
 
 declare var Razorpay: any;
 
@@ -18,8 +19,8 @@ declare var Razorpay: any;
 export class CartComponent implements OnInit {
   cartDetails :any;
 
- totalproducts : any = 0;
-  constructor(private cartService :CartService,private paymetService:PaymentServiceService) { }
+  totalproducts : any = 0;
+  constructor(private cartService :CartService,private paymetService:PaymentServiceService,private orderservice:OrderService) { }
   totalPrize:any=0;
 
 
@@ -46,11 +47,12 @@ export class CartComponent implements OnInit {
 
   }
 
-increaseItemCount(item:any) {
+  increaseItemCount(item:any) {
     item.productQuantity++;
     item.quantityprice=item.productQuantity*item.productDiscountPrice;
   };
- decreaseItemCount = function(item:any) {
+  
+  decreaseItemCount = function(item:any) {
    if(item.productQuantity>0){
     item.productQuantity--;
     item.quantityprice=item.productQuantity*item.productDiscountPrice;
@@ -63,29 +65,31 @@ increaseItemCount(item:any) {
   paymentMessage:any;
   PaymentInfo: Payment=new Payment();
   error:any;
+
+  callbackRazor(){
+      console.log("hello");
+  }
+  
   options = {
     "key": "rzp_test_eKMQiTe1MYTomX",
     "amount": "", 
     "name": "Shopper",
     "description": "Payment",
     "order_id":"",
-    "handler": function (_response: any){
+    "handler":  (_response: any) =>{
         console.log(_response.razorpay_payment_id);
         console.log(_response.razorpay_order_id);
         console.log(_response.razorpay_signature);
-      
-
         Swal.fire("Good Job","Payment successful","success");
-        
-    }
-    ,
+        this.callbackRazor()
+    },
     "prefill": {
-    "name": "aa",
-    "email": "aa@gmail.com",
-    "contact": "9850593605"
+    "name": "",
+    "email": `${localStorage.getItem("email")}`,
+    "contact": ""
     },
     "notes": {
-    "address": "coding try"
+    "address": ""
     },
     "theme": {
     "color": "#3399cc"
@@ -128,14 +132,7 @@ increaseItemCount(item:any) {
   
   }
 
-
-
-  // $scope.sumCalc = function() {
-  //   var sum = 0;
-  //   angular.forEach($scope.itemList, function(item, index) {
-  //     sum += parseInt(item.quantity,10);
-  //   });
-  //   return sum;
-  // };
-
 }
+
+
+
