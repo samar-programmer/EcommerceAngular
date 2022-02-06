@@ -9,6 +9,7 @@ import { fadeInItems } from '@angular/material/menu';
 import { isNgTemplate } from '@angular/compiler';
 import { OrderService } from '../services/order.service';
 import { Orderdata } from '../common/orderdata';
+import { Router } from '@angular/router';
 
 declare var Razorpay: any;
 
@@ -21,14 +22,12 @@ export class CartComponent implements OnInit {
   cartDetails :any;
 
   totalproducts : any = 0;
-  constructor(private cartService :CartService,private paymetService:PaymentServiceService,private orderservice:OrderService) { }
+  constructor(private cartService :CartService,private paymetService:PaymentServiceService,private orderservice:OrderService,private route:Router) { }
   totalPrize:any=0;
 
 
   ngOnInit(): void {
 
-<<<<<<< Updated upstream
-=======
     
     var email=localStorage.getItem("email")
  
@@ -43,7 +42,6 @@ export class CartComponent implements OnInit {
 
 
 
->>>>>>> Stashed changes
     let result : any = this.cartService.getAllProducts(localStorage.getItem("email"));
 
     result
