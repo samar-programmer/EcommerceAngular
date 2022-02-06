@@ -11,6 +11,14 @@ export class DashboardComponent implements OnInit {
   constructor(private route:Router) { }
 
   ngOnInit(): void {
+    
+    var email=localStorage.getItem("email")
+ 
+    if(email==null){
+     console.log("No Email");
+  
+    this.route.navigate(['./home']);
+      }
   }
 
   logOut()

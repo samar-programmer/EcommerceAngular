@@ -4,7 +4,8 @@ export class EcommerceUser {
     password?:String;
     firstname?:String;
     lastname?:String;
-    mobilenumber?:number
+    mobilenumber?:number;
+    otp?:number;
 
     // public setEemail(email:string){
     //     this.email=email;
