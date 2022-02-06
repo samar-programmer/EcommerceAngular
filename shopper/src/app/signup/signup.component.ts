@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EcommerceUser } from '../ecommerce-user';
 
 import { SignUpService } from '../sign-up.service';
@@ -12,8 +13,7 @@ export class SignupComponent implements OnInit {
 
   user=new EcommerceUser();
 
-  constructor(private _service:SignUpService) { }
-
+  constructor(private _service:SignUpService,private route:Router) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +24,8 @@ export class SignupComponent implements OnInit {
     var result=this._service.signUpUserFromRemote(this.user);
 
                 result.subscribe(data=>console.log(data));
+
+                this.route.navigate(['./login']);
   }
 
 }

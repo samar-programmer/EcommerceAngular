@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EmailValidator } from '@angular/forms';
+import { Router, RouterEvent, RouterLink } from '@angular/router';
 import { EcommerceUser } from '../ecommerce-user';
 
 import { LoginService } from '../login.service';
@@ -11,7 +13,7 @@ import { LoginService } from '../login.service';
 export class LoginComponent implements OnInit {
   user=new EcommerceUser();
 
-  constructor(private _service:LoginService ) { }
+  constructor(private _service:LoginService ,private route:Router) { }
 
   ngOnInit(): void {
   }
@@ -26,8 +28,18 @@ export class LoginComponent implements OnInit {
       result.subscribe((data:any)=>{console.log(data)
         localStorage.setItem("email",data);
 
+        if(data.toString()=="Admin@gmail.com")
+        {
+          // <a [RouterLink]="['./home']"></a>
+          this.route.navigate(['./admin']);
+        }
+        else
+        {
+          this.route.navigate(['./home']);
+        }
       });
 
+    
       
 
 

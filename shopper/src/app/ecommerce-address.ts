@@ -13,5 +13,13 @@ export class EcommerceAddress {
 	 landmark?:String;
 	 phonenumber?:number;
      userdata?:EcommerceUser
+
+	 public setUserdata(userdata:EcommerceUser){
+        this.userdata=userdata;
+    }
+    public getUserdata(){
+        return this.userdata;
+    }
+
      
 }
