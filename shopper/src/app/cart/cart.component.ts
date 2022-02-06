@@ -27,6 +27,23 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
 
+<<<<<<< Updated upstream
+=======
+    
+    var email=localStorage.getItem("email")
+ 
+    if(email==null){
+     console.log("No Email");
+  
+    this.route.navigate(['./home']);
+      }
+
+
+      
+
+
+
+>>>>>>> Stashed changes
     let result : any = this.cartService.getAllProducts(localStorage.getItem("email"));
 
     result
