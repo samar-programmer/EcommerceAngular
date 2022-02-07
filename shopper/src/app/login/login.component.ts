@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailValidator } from '@angular/forms';
 import { Router, RouterEvent, RouterLink } from '@angular/router';
+import Swal from 'sweetalert2';
 import { EcommerceUser } from '../ecommerce-user';
 
 import { LoginService } from '../login.service';
@@ -32,6 +33,8 @@ export class LoginComponent implements OnInit {
         {
           
           this.route.navigate(['./admin']);
+        }else if(data.toString()=="login failed!!!! SIGN UP FIRST Or Wrong PassWord"){
+            Swal.fire("login failed","OOPS login failed","error");
         }
         else
         {

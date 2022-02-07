@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { EcommerceUser } from '../ecommerce-user';
 
 import { SignUpService } from '../sign-up.service';
@@ -23,9 +24,16 @@ export class SignupComponent implements OnInit {
     console.log("Heloo there");
     var result=this._service.signUpUserFromRemote(this.user);
 
-                result.subscribe(data=>console.log(data));
-
-                this.route.navigate(['./login']);
+    result.subscribe((data:any)=>{
+      console.log(data)
+      if(data.toString()=="User Signed UP"){
+        this.route.navigate(['./login']);
+      }else{
+        Swal.fire("SignUp failed","OOPS SignUp failed","error");
+      }
+    });
+    
+    
   }
 
 }
