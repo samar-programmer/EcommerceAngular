@@ -30,7 +30,19 @@ export class ProfileDetailsComponent implements OnInit {
   registerUser()
   {
       var result=this._service.registerUserFromRemote(this.user,this.user.email);
-                 result.subscribe((data:any)=>console.log(data));
+                 result.subscribe((data:any)=>{console.log(data)
+                 
+        if(data.toString()=="Admin@gmail.com")
+        {
+          
+          this.route.navigate(['./admin']);
+        }
+        else
+        {
+          this.route.navigate(['./home']);
+        }
+      });
+
   }
 
 logOut()
