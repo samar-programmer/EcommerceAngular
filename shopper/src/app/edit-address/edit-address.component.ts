@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { EcommerceAddress } from '../ecommerce-address';
 import { EcommerceUser } from '../ecommerce-user';
 
@@ -46,6 +47,7 @@ export class EditAddressComponent implements OnInit {
   {
       var result=this._service.saveAddressFromRemote(this.address);
       result.subscribe((data:any)=>console.log(data));
+      Swal.fire("Good Job","Address Updated","success");
   }
 
 }

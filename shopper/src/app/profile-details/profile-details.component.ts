@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { EcommerceUser } from '../ecommerce-user';
 
 import { RegisterService } from '../register.service';
@@ -39,7 +40,8 @@ export class ProfileDetailsComponent implements OnInit {
         }
         else
         {
-          this.route.navigate(['./home']);
+          Swal.fire("Good Job","Profile Updated","success");
+          //this.route.navigate(['./home']);
         }
       });
 
