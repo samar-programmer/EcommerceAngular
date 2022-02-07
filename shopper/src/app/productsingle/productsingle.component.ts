@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CartProduct } from '../common/cart-product';
 import { CartService } from '../services/cart.service';
@@ -20,9 +20,19 @@ export class ProductsingleComponent implements OnInit {
   cartProduct: CartProduct=new CartProduct();
 
 
-  constructor(private productService:ProductService,private route:ActivatedRoute,private cartService:CartService) { }
+  constructor(private route1:Router,private productService:ProductService,private route:ActivatedRoute,private cartService:CartService) { }
 
   ngOnInit(): void {
+
+    var email=localStorage.getItem("email")
+ 
+    if(email==null){
+     console.log("No Email");
+  
+    this.route1.navigate(['./home']);
+      }
+
+
     
     this.route.params.subscribe((params:any) => {
       this.productId= +params['id'];
