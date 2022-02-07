@@ -7,12 +7,7 @@ export class EcommerceUser {
     mobilenumber?:number;
     otp?:number;
 
-    // public setEemail(email:string){
-    //     this.email=email;
-    // }
-    // public getEemail(){
-    //     return this.email;
-    // }
+
 
 
 }
