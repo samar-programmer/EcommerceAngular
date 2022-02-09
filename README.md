@@ -1,10 +1,10 @@
-      SHOPPER
+      #SHOPPER
 
-Project Description:
+#Project Description:
     
       An online Ecommerce Application to buy Products
       
-Technologies Used:
+#Technologies Used:
 
     Angular 13
     HTML
@@ -13,7 +13,7 @@ Technologies Used:
     Bootstrap
     Material UI
     
- Features:
+ #Features:
   
     User Module:
     
@@ -42,11 +42,11 @@ Technologies Used:
         Update Product
         Order Details
         
-  Getting Started
+  #Getting Started
     
           git clone https://github.com/samar-programmer/EcommerceAngular/tree/sub1
         
-  Contributors     
+  #Contributors     
     
           Sasikumar,Shreysh mane,Manoj,Abinav Singh
           
