@@ -1,10 +1,21 @@
-orderNo: A001
-date: 2019-04-17
-customerName: Customer, Joe
-orderLines:
-    - item: No. 9 Sprockets
-      quantity: 12
-      unitPrice: 1.23
-    - item: Widget (10mm)
-      quantity: 4
-      unitPrice: 3.45
+---
+name: "David"
+wage: 1500
+position: "Developer"
+colleagues:
+- name: "Mary"
+  wage: 1800
+  position: "Developer"
+  colleagues: null
+- name: "Jane"
+  wage: 1200
+  position: "Developer"
+  colleagues: null
+- name: "Tim"
+  wage: 1600
+  position: "Developer"
+  colleagues: null
+- name: "Vladimir"
+  wage: 1000
+  position: "Developer"
+  colleagues: null
