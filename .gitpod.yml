@@ -1,0 +1,1 @@
+---apiVersion: storage.k8s.io/v1kind: StorageClassmetadata:  annotations:    storageclass.kubernetes.io/is-default-class: "false"  name: vscode-storageparameters:  fsType: ext4  type: gp2provisioner: kubernetes.io/aws-ebsreclaimPolicy: RetainvolumeBindingMode: WaitForFirstConsumer
